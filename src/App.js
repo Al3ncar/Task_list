@@ -140,20 +140,33 @@
 // }
 
 
-import React from "react";
-import "./App.css";
+import React from "react"
 
 export default class ToDo extends React.Component{
-  state = { task:"", list:[]}
-  handle = e => this.setState({ task: e.target.value })
-  add = () => { this.setState({ list: this.state.list.concat({list: this.state.task}), task:"" })}
+  state = {task: "", list: [] }
+
+  handleChang = e => this.setState({ task: e.target.value})
+
+  add = () => {
+    if(this.state.task !== ""){
+      this.setState({ list: this.state.list.concat({list: this.state.task}), task: ""})
+    }
+  }
 
   render(){
     return(
       <>
-        <input type="text" onChange={this.handle}/>
-        <button onClick={this.add}> Enviar </button>
-        {console.log(this.state.list)}
+        <input type="search" onChange={this.handleChang} value={this.state.task}/>
+        <button onClick={this.add}> enviar </button>
+
+        <p>{this.state.task}</p>
+
+        {this.state.list.map((item) => (
+          <ul>
+            <li> {item.list} </li>
+          </ul>
+        ))}
+ 
       </>
     )
   }
