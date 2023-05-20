@@ -38,19 +38,19 @@ const Title = styled.h1`
 const Newtesk = styled.div`
   width:100%;
   display:flex;
-  justify-content:center;
+  justify-content:space-around;
   align-items:center;`;
 const Del = styled.button`
-  width: 5%;
+  width: 10%;
   padding: 0.5%;
   margin-left: 5.5%;
 `;
 const Btn = styled.button`
-  width: 15%;
+  width: 10%;
   padding: 0.5%;
 `;
 const Task = styled.input`
-  width: 75%;
+  width: 60%;
   padding: 0.5% 1%;
   margin: 2% 0% 2% 0%;
   outline: 0;
@@ -131,43 +131,38 @@ export default class ToDo extends React.Component {
   }
 }
 
-/* 
-import React from "react"
+
+
+/*import React from "react"
 
 export default class ToDo extends React.Component{
-  state = {task: "", list: [] }
 
-  handleChang = e => this.setState({ task: e.target.value})
+  state = { task: "", list: []}
 
-  add = () => {
-    if(this.state.task !== ""){
-      this.setState({ list: this.state.list.concat({list: this.state.task, id: Date.now()}), task: ""})
-    }
-  }
+  handel = e => this.setState({task: e.target.value })
 
-  clear = id => {
-    this.setState({ list: this.state.list.filter((item) => item.id !== id)})
-  }
-  render(){
+  add = () => { if ( this.state.task !== "") { this.setState({ 
+    list: this.state.list.concat({ list: this.state.task, id: Date.now() }), task: "" }); }};
+
+  trash = (id) => { this.setState({ list: this.state.list.filter((item) => item.id !== id )})}
+  
+  clear = () => { this.setState({ task: this.state.task = ""})}
+
+  render() {
     return(
-      <form onSubmit={(e) => {e.preventDefault()}}>
-
-        <input type="search" onChange={this.handleChang} value={this.state.task}/>
-        <button onClick={this.add}> enviar </button>
-
-        <p>{this.state.task}</p>
+      <>
+        <button onClick={this.clear}> limpar </button>
+        <input type="search" onChange={this.handel} value={this.state.task}/> 
+        <button onClick={this.add}>Adicionar</button>
 
         {this.state.list.map((item) => (
-
-          <ul>
-            <li> {item.list} </li>
-            <button onClick={() => this.clear(item.id)}/>
-          </ul>
-
+          <>
+            <li>{item.list}</li>
+            <button onClick={() => this.trash(item.id)}> lixo </button>
+          </>
         ))}
- 
-      </form>
+      </>
     )
   }
 }
- */
+  */
