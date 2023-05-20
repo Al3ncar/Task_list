@@ -44,7 +44,7 @@ import styled from "styled-components";
     justify-content:center;
     align-items:center;`;
   const Del = styled.button` width: 10%; padding: 0.5%;`;
-  const Btn = styled.button` width: 10%; padding: 0.5%;`;
+  const Btn = styled.button` width: 15%; padding: 0.5%;`;
   const Task = styled.input`
     width: 60%;
     padding: 0.5% 1%;
@@ -127,36 +127,34 @@ export default class ToDo extends React.Component {
 
 
 
-/*import React from "react"
+/*
+
+import React from "react";
 
 export default class ToDo extends React.Component{
+  state = { task: "", list: [] }
 
-  state = { task: "", list: []}
-
-  handel = e => this.setState({task: e.target.value })
-
-  add = () => { if ( this.state.task !== "") { this.setState({ 
-    list: this.state.list.concat({ list: this.state.task, id: Date.now() }), task: "" }); }};
-
-  trash = (id) => { this.setState({ list: this.state.list.filter((item) => item.id !== id )})}
-  
-  clear = () => { this.setState({ task: this.state.task = ""})}
-
-  render() {
+    handChange = e => this.setState({ task: e.target.value });
+    add = () => { if(this.state.task !== "")
+      {this.setState({ list: this.state.list.concat({ list: this.state.task }), task: ""})}
+    }
+    trash = id => { this.setState({ list: this.state.list.filter( (item) => item.id !== id )} )}
+    clear = () => { this.setState({ task: ""})}
+  render(){
     return(
       <>
-        <button onClick={this.clear}> limpar </button>
-        <input type="search" onChange={this.handel} value={this.state.task}/> 
-        <button onClick={this.add}>Adicionar</button>
+        <button onClick={this.clear }> clear </button>
+        <input type="search" placeholder="Digite suas tarefas... " onChange={this.handChange} value={this.state.task} />
+        <button onClick={this.add}> add </button>
 
-        {this.state.list.map((item) => (
-          <>
+        {this.state.list.map(( item ) => (
+          <ul>
             <li>{item.list}</li>
-            <button onClick={() => this.trash(item.id)}> lixo </button>
-          </>
-        ))}
+            <button onClick={() => this.trash(item.id)}> remove </button>
+          </ul>
+        )  )}
       </>
     )
   }
 }
-  */
+*/
